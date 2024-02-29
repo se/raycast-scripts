@@ -3,10 +3,13 @@
 # Required parameters:
 # @raycast.schemaVersion 1
 # @raycast.title Send Push to Simulator
-# @raycast.mode inline
+# @raycast.mode fullOutput
+# @raycast.currentDirectoryPath /Users/code/git/se/raycast-scripts
+# @raycast.needsConfirmation false
 
 # Optional parameters:
 # @raycast.icon 📲
+
 LAST_MODIFIED_FILE=`ls -tr $APNS_FOLDER | tail -n 1`
 LAST_MODIFIED_FILE_FULLPATH=`echo $APNS_FOLDER/$LAST_MODIFIED_FILE`
 PUSH_DEVICE_ID=`xcrun simctl list devices | grep 'Booted' | awk 'match($0, /\w{8}\-\w{4}\-\w{4}\-\w{4}\-\w{12}/);{print substr($5, 2, length($5)-2)}'`
